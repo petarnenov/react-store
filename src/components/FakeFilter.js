@@ -8,7 +8,7 @@ const FakeFilter = React.forwardRef((props, ref) => {
     }))
 
     return (
-        <div>FakeFilter</div>
+        <h2 className='filter-form'>FakeFilter</h2>
     )
 })
 
