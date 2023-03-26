@@ -3,9 +3,10 @@ import React from 'react'
 import Label from './Label';
 import TextInput from './TextInput';
 import store from './store/store';
+import FilterDI from './Filter';
 
-const JobForm = ({ storeId }) => {
-
+const JobForm = ({ storeId, Filter = FilterDI }) => {
+    const filterRef = React.useRef();
     const handleReset = (e) => {
         store.setState({
             ...store.getState(),
@@ -22,6 +23,7 @@ const JobForm = ({ storeId }) => {
     return (
         <div>
             <h2>Job Form {storeId}</h2>
+            {<Filter ref={filterRef} filterId={"filter-" + storeId} />}
             <form className="job_form">
                 <Label htmlFor="title">Title</Label>
                 <TextInput id="title" name="title" storeId={storeId} />
@@ -37,6 +39,7 @@ const JobForm = ({ storeId }) => {
                 <TextInput id="equity" name="equity" storeId={storeId} />
                 <button type="submit" onClick={handleSubmit}>Submit</button>
                 <button type="reset" onClick={handleReset}>Reset</button>
+                <button type="button" onClick={() => filterRef.current.save({ id: "unique-id" })}>Save Filter</button>
             </form>
         </div>
     )

@@ -57,3 +57,18 @@ h1,
 h2 {
   text-align: center;
 }
+
+.filter-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-form input {
+  margin-right: 10px;
+}
+
+.filter-form label {
+  margin-right: 30px;
+}
