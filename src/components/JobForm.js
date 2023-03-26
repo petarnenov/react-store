@@ -15,7 +15,7 @@ const JobForm = ({ storeId }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('submitting form', store.getState())
+        console.log('submitting form', store.getState()[storeId])
         handleReset(e)
     }
 
