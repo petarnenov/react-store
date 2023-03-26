@@ -7,7 +7,7 @@ import App from './App';
 
 import './index.css';
 import JobForm from './components/JobForm';
-import CheckArea from './components/CheckArea';
+import CheckStore from './components/CheckStore';
 import FakeFilter from './components/FakeFilter';
 
 const router = createBrowserRouter(
@@ -17,7 +17,7 @@ const router = createBrowserRouter(
         <Route path="base" element={<JobForm storeId={"base-form"} />} />
         <Route path="advanced" element={<JobForm storeId={"advanced-form"} Filter={FakeFilter} />} />
       </Route>
-      <Route path="check" element={<CheckArea />} />
+      <Route path="check" element={<CheckStore />} />
     </Route>
   )
 )

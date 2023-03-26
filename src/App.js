@@ -18,7 +18,7 @@ function Navigation() {
           <h2>Advanced Form</h2>
         </NavLink>
         <NavLink to="/check" exact="true" >
-          <h2>Check Area</h2>
+          <h2>Check Store</h2>
         </NavLink>
       </ul>
       <Outlet />
