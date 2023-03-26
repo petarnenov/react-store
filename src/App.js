@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Profiler } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { useTimeStore } from './components/timeStore/timeStore';
 
@@ -30,7 +30,11 @@ function Navigation() {
 function App() {
 
   return (
-    <Navigation />
+    <Profiler id="App" onRender={(id, phase, actualDuration, baseDuration, startTime, commitTime) => {
+      console.log(id, phase, actualDuration, baseDuration, startTime, commitTime);
+    }}>
+      <Navigation />
+    </Profiler>
   );
 }
 
