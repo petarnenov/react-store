@@ -8,13 +8,14 @@ import App from './App';
 import './index.css';
 import JobForm from './components/JobForm';
 import CheckArea from './components/CheckArea';
+import FakeFilter from './components/FakeFilter';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />} >
       <Route path="job" element={<Outlet />} >
         <Route path="base" element={<JobForm storeId={"base-form"} />} />
-        <Route path="advanced" element={<JobForm storeId={"advanced-form"} />} />
+        <Route path="advanced" element={<JobForm storeId={"advanced-form"} Filter={FakeFilter} />} />
       </Route>
       <Route path="check" element={<CheckArea />} />
     </Route>
