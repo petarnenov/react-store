@@ -1,14 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider, Outlet } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
+
+import App from './App';
+
+import './index.css';
+import JobForm from './components/JobForm';
+import CheckArea from './components/CheckArea';
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<App />} >
+      <Route path="job" element={<Outlet />} >
+        <Route path="base" element={<JobForm storeId={"base-form"} />} />
+        <Route path="advanced" element={<JobForm storeId={"advanced-form"} />} />
+      </Route>
+      <Route path="check" element={<CheckArea />} />
+    </Route>
+  )
+)
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <RouterProvider router={router} />
 );
 
 // If you want to start measuring performance in your app, pass a function
